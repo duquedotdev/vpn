@@ -74,6 +74,12 @@ server_names = ['google']
 bootstrap_resolvers = ['8.8.8.8:53', '8.8.4.4:53']
 netprobe_address = '8.8.8.8:53'
 
+{% elif 'mullvad' in dns_nameservers %}
+server_names = ['mullvad']
+bootstrap_resolvers = ['194.242.2.2:53', '194.242.2.9:53']
+netprobe_address = '194.242.2.2:53'
+
+
 {% else %}
 server_names = ['cloudflare']
 bootstrap_resolvers = ['1.1.1.1:53', '1.0.0.1:53']
