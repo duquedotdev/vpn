@@ -9,6 +9,8 @@
           {%- set wireguard_dns = "1.1.1.1,1.0.0.1" -%}
         {%- elif "quad9" in dns_nameservers -%}
           {%- set wireguard_dns = "9.9.9.9,149.112.112.112" -%}
+        {%- elif "mullvad" in dns_nameservers -%}
+          {%- set wireguard_dns = "194.242.2.2,194.242.2.9" -%}  
         {%- else -%}
           {%- set wireguard_dns = "8.8.8.8,8.8.4.4" -%}
         {%- endif -%}
