@@ -283,6 +283,7 @@ echo
 echo "1. Cloudflare [1.1.1.1] (default)"
 echo "2. Quad9 [9.9.9.9]"
 echo "3. Google [8.8.8.8]"
+echo "4. Mullvad [194.242.2.2]"
 echo
 
 read -p "DNS [1]: " dns_number
@@ -290,9 +291,9 @@ read -p "DNS [1]: " dns_number
 if [ -z ${dns_number} ] || [ ${dns_number} == "1" ]; then
     dns_nameservers="cloudflare"
 else
-  until [[ "$dns_number" =~ ^[2-3]$ ]]; do
+  until [[ "$dns_number" =~ ^[2-4]$ ]]; do
     echo "Invalid DNS choice"
-    echo "Make sure that you answer with either 1, 2 or 3"
+    echo "Make sure that you answer with either 1, 2, 3 or 4"
     read -p "DNS [1]: " dns_number
   done
     case $dns_number in 
@@ -302,6 +303,9 @@ else
       "3")
         dns_nameservers="google"
         ;;
+      "4")
+        dns_nameservers="mullvad"
+        ;;        
         *)
         dns_nameservers="cloudflare"
         ;;
